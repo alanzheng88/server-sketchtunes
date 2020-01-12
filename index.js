@@ -5,7 +5,7 @@ const dgram = require('dgram');
 const fs = require('fs');
 
 const UDP_PORT = 1356;
-const HOST='192.168.0.100';
+const HOST='127.0.0.1';
 
 const message = Buffer.from('Updated!', 'utf8');
 const client = dgram.createSocket('udp4');
