@@ -7,7 +7,7 @@ const fs = require('fs');
 const UDP_PORT = 1356;
 const HOST='192.168.0.100';
 
-const message = Buffer.from('Hey there!!', 'utf8');
+const message = Buffer.from('Updated!', 'utf8');
 const client = dgram.createSocket('udp4');
 
 client.on('message', (message, remote) => {
@@ -35,17 +35,17 @@ app.post('/api/v1/lines', (req, res) => {
   console.log('[alan] data: ');
   console.log(req.body);
 
-  console.log('sending udp packet now...');
+  // console.log('sending udp packet now...');
 
   writeToFile(req.body.data);
 
-  // client.send(formattedData, 0, message.length, UDP_PORT, HOST, (err, bytes) => {
-  //   if (err) {
-  //       console.error(`UDP message send error:`, err);
-  //   } else {
-  //       console.log(`UDP message sent to ${HOST}:${UDP_PORT}`);
-  //   }
-  // });
+  client.send(message, 0, message.length, UDP_PORT, HOST, (err, bytes) => {
+    if (err) {
+        console.error(`UDP message send error:`, err);
+    } else {
+        console.log(`UDP message sent to ${HOST}:${UDP_PORT}`);
+    }
+  });
 
   res.json({requestBody: req.body})
 });
@@ -68,7 +68,7 @@ function writeToFile(array2D) {
       if (array2D[i] !== -99999) {
         dataString += i + ", ";
         for (let j = 0; j < array2D[i].length; j++) {
-          dataString += array2D[i][j];
+          dataString += array2D[i][j] + ' ';
         }
         dataString += ";\n";
       } else {
