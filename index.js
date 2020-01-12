@@ -65,13 +65,9 @@ function writeToFile(array2D) {
     for (let i = 0; i < array2D.length; i++) {
       let dataString = '';
 
-      console.log('row: ' + i);
-      console.log(array2D[i]);
       if (array2D[i] !== -99999) {
         dataString += i + ", ";
         for (let j = 0; j < array2D[i].length; j++) {
-          console.log('column: ' + j);
-          console.log(array2D[i][j]);
           dataString += array2D[i][j];
         }
         dataString += ";\n";
