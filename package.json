@@ -9,6 +9,9 @@
   "author": "Alan Zheng",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "dgram": "^1.0.1",
+    "express": "^4.17.1",
+    "node-osc": "^4.1.4",
+    "osc": "^2.3.1"
   }
 }
