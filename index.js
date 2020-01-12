@@ -67,7 +67,7 @@ function writeToFile(array2D) {
 
       if (array2D[i] !== -99999) {
         dataString += i + ", ";
-        for (let j = 0; j < array2D[i].length; j++) {
+        for (let j = array2D[i].length - 1; j >= 0; j--) {
           dataString += array2D[i][j] + ' ';
         }
         dataString += ";\n";
