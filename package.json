@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "dgram": "^1.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "node-osc": "^4.1.4",
     "osc": "^2.3.1"
   }
